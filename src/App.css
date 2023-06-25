@@ -52,6 +52,7 @@ body {
   font-size: 32px;
   margin: 5px;
   border-radius: 2px;
+  padding-top: 2px;
 }
 
 .row {
@@ -71,13 +72,13 @@ body {
 }
 
 #correct {
-  background-color: green;
+  background-color: #70cc33;
 }
 
 #almost {
-  background-color: yellow;
+  background-color: #ccc433;
 }
 
 #incorrect {
-  background-color: red;
+  background-color: #eb4034;
 }

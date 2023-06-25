@@ -3,7 +3,9 @@ import React from 'react'
 function Key({ keyVal }) {
     return (
         <div className='key'>
-            {keyVal}
+            <div style={{ paddingTop: 3 }}>
+                {keyVal}
+            </div>
         </div>
     )
 }

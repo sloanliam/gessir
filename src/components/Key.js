@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Key({ keyVal }) {
+function Key({ keyVal, bigKey }) {
     return (
-        <div className='key'>
-            <div style={{ paddingTop: 3 }}>
+        <div className={bigKey ? 'bigkey' : 'key'}>
+            <div style={{ paddingTop: 3 }} >
                 {keyVal}
             </div>
         </div>

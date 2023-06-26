@@ -8,19 +8,35 @@ function Keyboard() {
     const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer } = useContext(AppContext)
 
     const handleClick = (key) => {
-        let tempBoard = [...board]
-        tempBoard[currentRow][currentColumn] = key
-        setBoard(tempBoard)
+        if (key !== "ENTER" && key !== "DELETE") {
+            let tempBoard = [...board]
+            tempBoard[currentRow][currentColumn] = key
+            setBoard(tempBoard)
+        }
 
-        if(board[currentRow].join("") === answer) {
+        if (board[currentRow].join("") === answer) {
             alert("YOU WON")
         }
 
-        if (currentColumn === 4) {
-            setCurrentColumn(0)
-            setCurrentRow(prevState => prevState + 1)
+        if (key !== "DELETE") {
+            if (currentColumn === 5) {
+                if (key === "ENTER") {
+                    setCurrentColumn(0)
+                    setCurrentRow(prevState => prevState + 1)
+                }
+            } else {
+                setCurrentColumn(prevState => prevState + 1)
+            }
         } else {
-            setCurrentColumn(prevState => prevState + 1)
+            let tempBoard = [...board]
+
+            tempBoard[currentRow][currentColumn - 1] = ''
+
+            setBoard(tempBoard)
+
+            if (currentColumn !== 0) {
+                setCurrentColumn(prevState => prevState - 1)
+            }
         }
     }
 
@@ -41,11 +57,17 @@ function Keyboard() {
                 )}
             </div>
             <div className='key-row3'>
+                <div onClick={() => handleClick("ENTER")}>
+                    <Key keyVal={"ENTER"} bigKey />
+                </div>
                 {keyRow3.split("").map((key) =>
                     <div onClick={() => handleClick(key)}>
                         <Key keyVal={key} />
                     </div>
                 )}
+                <div onClick={() => handleClick("DELETE")}>
+                    <Key keyVal={"DELETE"} bigKey />
+                </div>
             </div>
         </div>
     )

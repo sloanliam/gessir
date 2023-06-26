@@ -3,9 +3,18 @@ import { keyRow1, keyRow2, keyRow3 } from '../constants'
 import Key from './Key'
 import { useContext } from 'react'
 import { AppContext } from '../App'
+import words from '../config/words.json'
 
 function Keyboard() {
     const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer } = useContext(AppContext)
+
+    const isValidWord = (word) => {
+        if (words.wordList.includes(word.toLowerCase())) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     const handleClick = (key) => {
         if (key !== "ENTER" && key !== "DELETE") {
@@ -21,17 +30,21 @@ function Keyboard() {
         if (key !== "DELETE") {
             if (currentColumn === 5) {
                 if (key === "ENTER") {
-                    setCurrentColumn(0)
-                    setCurrentRow(prevState => prevState + 1)
+                    const guess = board[currentRow].join("")
+
+                    if (isValidWord(guess)) {
+                        setCurrentColumn(0)
+                        setCurrentRow(prevState => prevState + 1)
+                    } else {
+                        alert("Not a valid word!")
+                    }
                 }
             } else {
                 setCurrentColumn(prevState => prevState + 1)
             }
         } else {
             let tempBoard = [...board]
-
             tempBoard[currentRow][currentColumn - 1] = ''
-
             setBoard(tempBoard)
 
             if (currentColumn !== 0) {

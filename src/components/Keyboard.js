@@ -6,7 +6,7 @@ import { AppContext } from '../App'
 import words from '../config/words.json'
 
 function Keyboard() {
-    const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer } = useContext(AppContext)
+    const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer, setWon, won } = useContext(AppContext)
 
     const isValidWord = (word) => {
         if (words.wordList.includes(word.toLowerCase())) {
@@ -24,7 +24,11 @@ function Keyboard() {
         }
 
         if (board[currentRow].join("") === answer) {
-            alert("YOU WON")
+            setWon(true)
+        } else {
+            if(currentRow == 5 && currentColumn == 5) {
+                alert("You lost. The answer was " + answer)
+            }
         }
 
         if (key !== "DELETE") {

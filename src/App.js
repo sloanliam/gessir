@@ -5,6 +5,7 @@ import { useState, createContext, useEffect } from 'react';
 import { defaultBoard } from './constants'
 import Keyboard from './components/Keyboard';
 import words from './config/words.json'
+import WinDisplay from './components/WinDisplay';
 
 export const AppContext = createContext()
 
@@ -18,14 +19,21 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className='game'>
-        <AppContext.Provider value={{
-          board, setBoard, currentColumn, setCurrentColumn, currentRow, setCurrentRow, answer, setWon
-        }}>
-          <Board />
-          <Keyboard />
-        </AppContext.Provider>
-      </div>
+      <AppContext.Provider value={{
+        board, setBoard, currentColumn, setCurrentColumn, currentRow, setCurrentRow, answer, setWon, won
+      }}>
+        {won === false ?
+          <div className='game'>
+            <div>
+              <Board />
+            </div>
+            <div className='keyboard-container'>
+              <Keyboard />
+            </div>
+          </div>
+          :
+          <WinDisplay />}
+      </AppContext.Provider>
     </div>
   );
 }

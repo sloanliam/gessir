@@ -3,7 +3,7 @@ import React from 'react'
 function Header() {
     return (
         <div className='header'>
-            <h1>Gessir</h1>
+            <h2>Gessir</h2>
             <hr />
         </div>
     )

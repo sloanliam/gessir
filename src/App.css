@@ -51,9 +51,8 @@ body {
   border-width: 2px;
   text-align: center;
   font-size: 32px;
-  margin: 5px;
+  margin: 3px;
   border-radius: 2px;
-  padding-top: 2px;
 }
 
 .row {
@@ -93,4 +92,12 @@ body {
   text-align: center;
   font-size: 12px;
   border-radius: 5px;
+}
+
+.key-text {
+  padding-top: 5px;
+}
+
+.keyboard-container {
+  padding-top: 15px;
 }

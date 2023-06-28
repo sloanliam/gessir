@@ -10,26 +10,26 @@ function Letter({ row, column }) {
       if (board[row][column] === answer[column]) {
         return (
           <div className='letter' id={'correct'}>
-            <div>{board[row][column]}</div>
+            <div className='key-text'>{board[row][column]}</div>
           </div>
         )
       } else if (answer.includes(board[row][column])) {
         return (
           <div className='letter' id={'almost'}>
-            <div>{board[row][column]}</div>
+            <div className='key-text'>{board[row][column]}</div>
           </div>
         )
       } else {
         return (
           <div className='letter' id={'incorrect'}>
-            <div>{board[row][column]}</div>
+            <div className='key-text'>{board[row][column]}</div>
           </div>
         )
       }
     } else {
       return (
         <div className='letter' id={row < currentRow ? 'correct' : null}>
-          <div>{board[row][column]}</div>
+          <div className='key-text'>{board[row][column]}</div>
         </div>
       )
     }

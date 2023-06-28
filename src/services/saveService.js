@@ -1,9 +1,24 @@
-const WORD_STREAK = "word_streak"
-
-const readWordStreak = () => {
-    return localStorage.getItem(WORD_STREAK)
+function saveLoss() {
+    localStorage.setItem("streak", "0")
 }
 
-const setWordStreak = (value) => {
-    localStorage.setItem(WORD_STREAK, value)
+function saveWin() {
+    if (localStorage.getItem("streak")) {
+        let streak = parseInt(localStorage.getItem("streak"))
+
+        localStorage.setItem("streak", (streak + 1).toString())
+    } else {
+        localStorage.setItem("streak", "1")
+    }
 }
+
+function getStreak() {
+    if (localStorage.getItem("streak")) {
+        return localStorage.getItem("streak")
+    } else {
+        localStorage.setItem("streak", "0")
+        return localStorage.getItem("streak")
+    }
+}
+
+export { getStreak, saveLoss, saveWin }

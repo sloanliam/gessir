@@ -4,9 +4,10 @@ import Key from './Key'
 import { useContext } from 'react'
 import { AppContext } from '../App'
 import words from '../config/words.json'
+import { getStreak, saveLoss, saveWin } from '../services/saveService'
 
 function Keyboard() {
-    const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer, setWon, won } = useContext(AppContext)
+    const { board, setBoard, currentRow, setCurrentRow, currentColumn, setCurrentColumn, answer, setWon } = useContext(AppContext)
 
     const isValidWord = (word) => {
         if (words.wordList.includes(word.toLowerCase())) {
@@ -23,11 +24,16 @@ function Keyboard() {
             setBoard(tempBoard)
         }
 
-        if (board[currentRow].join("") === answer) {
-            setWon(true)
+        if (board[currentRow].join("") === answer && key === "ENTER") {
+            saveWin()
+
+            if (parseInt(getStreak()) === 5) {
+                setWon(true)
+            }
         } else {
-            if(currentRow == 5 && currentColumn == 5) {
+            if(currentRow === 5 && currentColumn === 5 && key === "ENTER") {
                 alert("You lost. The answer was " + answer)
+                saveLoss()
             }
         }
 

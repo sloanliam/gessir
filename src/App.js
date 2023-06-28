@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header'
 import Board from './components/Board'
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 import { defaultBoard } from './constants'
 import Keyboard from './components/Keyboard';
 import words from './config/words.json'

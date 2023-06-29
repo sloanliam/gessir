@@ -26,9 +26,10 @@ function Keyboard() {
 
         if (board[currentRow].join("") === answer && key === "ENTER") {
             saveWin()
+            setWon(true)
 
             if (parseInt(getStreak()) === 5) {
-                setWon(true)
+                alert("You won overall.")
             }
         } else {
             if(currentRow === 5 && currentColumn === 5 && key === "ENTER") {

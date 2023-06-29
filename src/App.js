@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header'
 import Board from './components/Board'
-import { useState, createContext } from 'react';
+import { useState, createContext, useReducer } from 'react';
 import { defaultBoard } from './constants'
 import Keyboard from './components/Keyboard';
 import words from './config/words.json'
@@ -13,7 +13,7 @@ function App() {
   const [board, setBoard] = useState(defaultBoard)
   const [currentColumn, setCurrentColumn] = useState(0)
   const [currentRow, setCurrentRow] = useState(0)
-  const [answer, setAnswer] = useState(words.wordList[Math.floor(Math.random() * words.wordList.length)].toUpperCase())
+  const [answer, setAnswer] = useState(words.answer[Math.floor(Math.random() * words.wordList.length)].toUpperCase())
   const [won, setWon] = useState(false)
 
   return (

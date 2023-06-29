@@ -39,7 +39,7 @@ body {
 .key-row3 {
   display: flex;
   flex-direction: row;
-  margin-left: 0.5%;
+  margin-left: 0%;
 }
 
 .letter {

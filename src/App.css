@@ -27,19 +27,19 @@ body {
 .key-row1 {
   display: flex;
   flex-direction: row;
-  margin-left: 1%;
+  margin-left: 0.5%;
 }
 
 .key-row2 {
   display: flex;
   flex-direction: row;
-  margin-left: 6%;
+  margin-left: 5.5%;
 }
 
 .key-row3 {
   display: flex;
   flex-direction: row;
-  margin-left: 1%;
+  margin-left: 0.5%;
 }
 
 .letter {

@@ -14,8 +14,7 @@ function App() {
   const [currentColumn, setCurrentColumn] = useState(0)
   const [currentRow, setCurrentRow] = useState(0)
   const [won, setWon] = useState(false)
-
-  const answer = words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase()
+  const [answer, setAnswer] = (words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase())
 
   const mainDisplay = () => {
     if (won) {

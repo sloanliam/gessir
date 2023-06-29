@@ -6,6 +6,7 @@ import { defaultBoard } from './constants'
 import Keyboard from './components/Keyboard';
 import words from './config/words.json'
 import WinDisplay from './components/WinDisplay';
+import VersionDisplay from './components/VersionDisplay';
 
 export const AppContext = createContext()
 
@@ -13,7 +14,7 @@ function App() {
   const [board, setBoard] = useState(defaultBoard)
   const [currentColumn, setCurrentColumn] = useState(0)
   const [currentRow, setCurrentRow] = useState(0)
-  const [answer, setAnswer] = useState(words.answer[Math.floor(Math.random() * words.wordList.length)].toUpperCase())
+  const [answer, setAnswer] = useState(words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase())
   const [won, setWon] = useState(false)
 
   return (
@@ -33,6 +34,7 @@ function App() {
           </div>
           :
           <WinDisplay />}
+          <VersionDisplay/>
       </AppContext.Provider>
     </div>
   );

@@ -13,27 +13,8 @@ function App() {
   const [board, setBoard] = useState(defaultBoard)
   const [currentColumn, setCurrentColumn] = useState(0)
   const [currentRow, setCurrentRow] = useState(0)
+  const [answer, setAnswer] = useState(words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase())
   const [won, setWon] = useState(false)
-  const [answer, setAnswer] = (words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase())
-
-  const mainDisplay = () => {
-    if (won) {
-      return (
-        <WinDisplay />
-      )
-    } else {
-      return (
-        <div className='game'>
-          <div>
-            <Board />
-          </div>
-          <div className='keyboard-container'>
-            <Keyboard />
-          </div>
-        </div>
-      )
-    }
-  }
 
   return (
     <div className="App">
@@ -41,7 +22,17 @@ function App() {
       <AppContext.Provider value={{
         board, setBoard, currentColumn, setCurrentColumn, currentRow, setCurrentRow, answer, setWon, won
       }}>
-        {mainDisplay()}
+        {won === false ?
+          <div className='game'>
+            <div>
+              <Board />
+            </div>
+            <div className='keyboard-container'>
+              <Keyboard />
+            </div>
+          </div>
+          :
+          <WinDisplay />}
       </AppContext.Provider>
     </div>
   );

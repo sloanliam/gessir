@@ -32,7 +32,7 @@ function Keyboard() {
                 alert("You won overall.")
             }
         } else {
-            if(currentRow === 5 && currentColumn === 5 && key === "ENTER") {
+            if (currentRow === 5 && currentColumn === 5 && key === "ENTER") {
                 alert("You lost. The answer was " + answer)
                 saveLoss()
             }

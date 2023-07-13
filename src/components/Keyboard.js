@@ -19,9 +19,11 @@ function Keyboard() {
 
     const handleClick = (key) => {
         if (key !== "ENTER" && key !== "DELETE") {
-            let tempBoard = [...board]
-            tempBoard[currentRow][currentColumn] = key
-            setBoard(tempBoard)
+            if (currentColumn <= 4) {
+                let tempBoard = [...board]
+                tempBoard[currentRow][currentColumn] = key
+                setBoard(tempBoard)
+            }
         }
 
         if (board[currentRow].join("") === answer && key === "ENTER") {

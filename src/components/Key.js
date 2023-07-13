@@ -3,7 +3,7 @@ import React from 'react'
 function Key({ keyVal, bigKey }) {
     return (
         <div className={bigKey ? 'bigkey' : 'key'}>
-            <div style={{ paddingTop: bigKey ? 12 : 5 }} >
+            <div style={{ paddingTop: bigKey ? 16 : 9 }} >
                 {keyVal}
             </div>
         </div>

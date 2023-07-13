@@ -4,7 +4,6 @@ function Header() {
     return (
         <div className='header'>
             <h2>Gessir</h2>
-            <hr />
         </div>
     )
 }

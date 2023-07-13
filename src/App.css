@@ -3,8 +3,10 @@
   color: white;
 }
 
+html,
 body {
-  background-color: black;
+  background-image: linear-gradient(to bottom right, rgb(10, 156, 120), rgb(93, 209, 215));
+  height: 100%;
 }
 
 .game {
@@ -17,6 +19,29 @@ body {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+}
+
+@keyframes letter-wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  30% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.change-container {
+  animation-name: letter-wiggle;
+  animation-duration: 0.5s;
 }
 
 .key-container {
@@ -43,16 +68,17 @@ body {
 }
 
 .letter {
+  background-color: #a7aba8;
   width: 50px;
   height: 50px;
   color: white;
-  border-color: white;
+  border-color: #c1dec9;
   border-style: solid;
   border-width: 2px;
   text-align: center;
   font-size: 32px;
   margin: 3px;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .row {
@@ -63,8 +89,8 @@ body {
 .key {
   color: white;
   width: 30px;
-  height: 40px;
-  background-color: grey;
+  height: 48px;
+  background-color: #8b8c8b;
   margin: 3px;
   text-align: center;
   font-size: 24px;
@@ -86,8 +112,8 @@ body {
 .bigkey {
   color: white;
   width: 50px;
-  height: 40px;
-  background-color: grey;
+  height: 48px;
+  background-color: #8b8c8b;
   margin: 3px;
   text-align: center;
   font-size: 12px;
@@ -95,11 +121,11 @@ body {
 }
 
 .key-text {
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 .keyboard-container {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .win-container {

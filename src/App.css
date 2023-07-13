@@ -1,6 +1,9 @@
 .header {
   text-align: center;
   color: white;
+  font-family: 'Lilita One', cursive;
+  font-size: 60px;
+  padding-top: 12px;
 }
 
 html,
@@ -27,11 +30,11 @@ body {
   }
 
   30% {
-    transform: rotate(10deg);
+    transform: rotate(7deg);
   }
 
   60% {
-    transform: rotate(-10deg);
+    transform: rotate(-7deg);
   }
 
   100% {
@@ -95,6 +98,7 @@ body {
   text-align: center;
   font-size: 24px;
   border-radius: 5px;
+  font-family: 'Lilita One', cursive;
 }
 
 #correct {
@@ -118,10 +122,12 @@ body {
   text-align: center;
   font-size: 12px;
   border-radius: 5px;
+  font-family: 'Lilita One', cursive;
 }
 
 .key-text {
-  padding-top: 2px;
+  padding-top: 5px;
+  font-family: 'Lilita One', cursive;
 }
 
 .keyboard-container {

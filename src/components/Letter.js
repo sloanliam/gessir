@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
-import { AppContext } from '../App'
+import { AppContext } from './Game'
 
 function Letter({ row, column }) {
   const { board, answer, currentRow, currentColumn } = useContext(AppContext)

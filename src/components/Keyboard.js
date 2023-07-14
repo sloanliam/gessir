@@ -2,7 +2,7 @@ import React from 'react'
 import { keyRow1, keyRow2, keyRow3 } from '../constants'
 import Key from './Key'
 import { useContext } from 'react'
-import { AppContext } from '../App'
+import { AppContext } from './Game'
 import words from '../config/words.json'
 import { getStreak, saveLoss, saveWin } from '../services/saveService'
 

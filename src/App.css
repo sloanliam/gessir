@@ -6,10 +6,13 @@
   padding-top: 12px;
 }
 
-html,
-body {
+html, body {
   background-image: linear-gradient(to bottom right, rgb(10, 156, 120), rgb(93, 209, 215));
   height: 100%;
+}
+
+div {
+  font-family: 'Lilita One', cursive;
 }
 
 .game {
@@ -48,6 +51,10 @@ body {
 }
 
 .key-container {
+  position: absolute;
+  bottom: 2%;
+  right: 0px;
+  left: 0px;
   display: flex;
   flex-direction: column;
 }
@@ -55,19 +62,19 @@ body {
 .key-row1 {
   display: flex;
   flex-direction: row;
-  margin-left: 0.5%;
+  margin: auto;
 }
 
 .key-row2 {
   display: flex;
   flex-direction: row;
-  margin-left: 5.5%;
+  margin: auto;
 }
 
 .key-row3 {
   display: flex;
   flex-direction: row;
-  margin-left: 0%;
+  margin: auto;
 }
 
 .letter {
@@ -98,7 +105,6 @@ body {
   text-align: center;
   font-size: 24px;
   border-radius: 5px;
-  font-family: 'Lilita One', cursive;
 }
 
 #correct {
@@ -142,4 +148,40 @@ body {
 .version-container {
   color: white;
   text-align: center;
+}
+
+.instruction-container {
+  text-align: center;
+}
+
+.instruction-header {
+  padding-top: 20px;
+  color: white;
+  font-size: 48px;
+}
+
+.instruction-text {
+  padding-top: 50px;
+  color: white;
+  font-size: 24px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.instruction-button {
+  margin-top: 50px;
+  border-radius: 10px;
+  border-color: #8b8c8b;
+  background-color: #8b8c8b;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.instruction-button-text {
+  color: white;
+  font-size: 36px;
 }

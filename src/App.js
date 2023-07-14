@@ -1,39 +1,32 @@
+import { useState } from 'react';
 import './App.css';
-import Header from './components/Header'
-import Board from './components/Board'
-import { useState, createContext } from 'react';
-import { defaultBoard } from './constants'
-import Keyboard from './components/Keyboard';
-import words from './config/words.json'
-import WinDisplay from './components/WinDisplay';
-
-export const AppContext = createContext()
+import Game from './components/Game';
+import { GAME_PAGE, INTRO_PAGE } from './constants';
+import Instructions from './components/Instructions';
 
 function App() {
-  const [board, setBoard] = useState(defaultBoard)
-  const [currentColumn, setCurrentColumn] = useState(0)
-  const [currentRow, setCurrentRow] = useState(0)
-  const [answer, setAnswer] = useState(words.answers[Math.floor(Math.random() * words.answers.length)].toUpperCase())
-  const [won, setWon] = useState(false)
+  const [page, setPage] = useState(INTRO_PAGE)
+
+  const mainDisplay = (page) => {
+    switch(page) {
+      case INTRO_PAGE:
+        return (
+          <Instructions onPlayClick={setPage}/>
+        )
+      case GAME_PAGE:
+        return (
+          <Game />
+        )
+      default:
+        return (
+          <Instructions />
+        )
+    }
+  }
 
   return (
     <div className="App">
-      <Header />
-      <AppContext.Provider value={{
-        board, setBoard, currentColumn, setCurrentColumn, currentRow, setCurrentRow, answer, setWon, won
-      }}>
-        {won === false ?
-          <div className='game'>
-            <div>
-              <Board />
-            </div>
-            <div className='keyboard-container'>
-              <Keyboard />
-            </div>
-          </div>
-          :
-          <WinDisplay />}
-      </AppContext.Provider>
+      {mainDisplay(page)}
     </div>
   );
 }

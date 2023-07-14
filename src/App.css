@@ -51,10 +51,6 @@ div {
 }
 
 .key-container {
-  position: absolute;
-  bottom: 2%;
-  right: 0px;
-  left: 0px;
   display: flex;
   flex-direction: column;
 }
